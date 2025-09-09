@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDISYNC CSV Upload Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        .upload-area:hover {
+            border-color: #1976d2;
+            background: #f0f7ff;
+        }
+        button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #1565c0;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>MEDISYNC CSV Upload Test</h1>
+    
+    <div class="upload-area">
+        <h2>Upload NAMASTE CSV File</h2>
+        <input type="file" id="fileInput" accept=".csv">
+        <br><br>
+        <button onclick="uploadFile()">Upload CSV</button>
+    </div>
+    
+    <div id="result"></div>
+    
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const resultDiv = document.getElementById('result');
+            
+            if (!fileInput.files[0]) {
+                resultDiv.innerHTML = '<div class="result error">Please select a file first!</div>';
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            resultDiv.innerHTML = '<div class="result">Uploading...</div>';
+            
+            try {
+                const response = await fetch('http://localhost:5000/ingest/csv-simple', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            <h3>✅ Upload Successful!</h3>
+                            <p><strong>Message:</strong> ${data.outcome?.issue?.[0]?.details?.text || 'Upload completed'}</p>
+                            <p><strong>Resource Type:</strong> ${data.resourceType}</p>
+                            <p><strong>Codes Processed:</strong> ${data.count || 0}</p>
+                            <details>
+                                <summary>Full Response</summary>
+                                <pre>${JSON.stringify(data, null, 2)}</pre>
+                            </details>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.issue?.[0]?.details?.text || 'Upload failed');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ Upload Failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Test search functionality
+        async function testSearch(query) {
+            try {
+                const response = await fetch(`http://localhost:5000/valueset/search?q=${query}`);
+                const data = await response.json();
+                console.log('Search results for', query, ':', data);
+                return data;
+            } catch (error) {
+                console.error('Search failed:', error);
+            }
+        }
+    </script>
+</body>
+</html>

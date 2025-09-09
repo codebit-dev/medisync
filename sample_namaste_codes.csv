@@ -1,0 +1,46 @@
+code,display,definition,category,parent_code
+NAM001,Vata Dosha,One of the three primary doshas in Ayurveda representing air and space elements,Ayurveda,
+NAM002,Pitta Dosha,One of the three primary doshas in Ayurveda representing fire and water elements,Ayurveda,
+NAM003,Kapha Dosha,One of the three primary doshas in Ayurveda representing earth and water elements,Ayurveda,
+NAM004,Vata-Pitta Imbalance,Dual dosha imbalance condition,Ayurveda,
+NAM005,Ama (Toxins),Accumulation of metabolic waste and toxins in the body,Ayurveda,
+NAM006,Ojas,Vital essence that maintains immunity and vitality,Ayurveda,
+NAM007,Agni,Digestive fire responsible for metabolism,Ayurveda,
+NAM008,Dhatu,Body tissues as per Ayurvedic physiology,Ayurveda,
+NAM009,Rasa Dhatu,Plasma tissue nourishing the body,Ayurveda,NAM008
+NAM010,Rakta Dhatu,Blood tissue responsible for oxygenation,Ayurveda,NAM008
+NAM011,Mamsa Dhatu,Muscle tissue providing structure,Ayurveda,NAM008
+NAM012,Meda Dhatu,Adipose tissue for energy storage,Ayurveda,NAM008
+NAM013,Asthi Dhatu,Bone tissue providing framework,Ayurveda,NAM008
+NAM014,Majja Dhatu,Bone marrow and nervous tissue,Ayurveda,NAM008
+NAM015,Shukra Dhatu,Reproductive tissue,Ayurveda,NAM008
+YOG001,Pranayama,Breathing exercises for vital energy control,Yoga,
+YOG002,Asana,Physical postures in yoga practice,Yoga,
+YOG003,Dhyana,Meditation practice for mental clarity,Yoga,
+YOG004,Pratyahara,Withdrawal of senses,Yoga,
+YOG005,Dharana,Concentration practice,Yoga,
+YOG006,Samadhi,State of meditative consciousness,Yoga,
+YOG007,Yama,Ethical restraints in yoga philosophy,Yoga,
+YOG008,Niyama,Personal observances in yoga,Yoga,
+NAT001,Panchakarma,Five purification procedures,Naturopathy,
+NAT002,Hydrotherapy,Water-based therapeutic treatments,Naturopathy,
+NAT003,Mud Therapy,Therapeutic use of mud for healing,Naturopathy,
+NAT004,Fasting Therapy,Therapeutic fasting for detoxification,Naturopathy,
+NAT005,Chromotherapy,Color therapy for healing,Naturopathy,
+UNA001,Tibb-e-Unani,Traditional Greco-Arabic medicine system,Unani,
+UNA002,Mizaj,Temperament in Unani medicine,Unani,
+UNA003,Akhlat,Four humors in Unani system,Unani,
+UNA004,Dam (Blood),Blood humor in Unani,Unani,UNA003
+UNA005,Balgham (Phlegm),Phlegm humor in Unani,Unani,UNA003
+UNA006,Safra (Yellow Bile),Yellow bile humor in Unani,Unani,UNA003
+UNA007,Sauda (Black Bile),Black bile humor in Unani,Unani,UNA003
+SID001,Siddha Maruthuvam,Traditional Tamil medicine system,Siddha,
+SID002,Vatham,Air element in Siddha medicine,Siddha,
+SID003,Pitham,Fire element in Siddha medicine,Siddha,
+SID004,Kapham,Water element in Siddha medicine,Siddha,
+SID005,Rasayana,Rejuvenation therapy in Siddha,Siddha,
+HOM001,Similimum,Most similar remedy in homeopathy,Homeopathy,
+HOM002,Potentization,Process of serial dilution and succussion,Homeopathy,
+HOM003,Constitutional Remedy,Remedy based on individual constitution,Homeopathy,
+HOM004,Miasm,Inherited disease tendency,Homeopathy,
+HOM005,Vital Force,Life energy in homeopathic philosophy,Homeopathy,
